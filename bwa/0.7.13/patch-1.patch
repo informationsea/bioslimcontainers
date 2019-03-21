@@ -1,0 +1,34 @@
+diff -rU 3 bwa-0.7.15-original/bwt.h bwa-0.7.15/bwt.h
+--- bwa-0.7.15-original/bwt.h   2019-03-21 07:44:35.079304929 +0000
++++ bwa-0.7.15/bwt.h    2019-03-21 07:47:10.651618708 +0000
+@@ -42,6 +42,7 @@
+ #endif
+ 
+ typedef uint64_t bwtint_t;
++typedef uint32_t u_int32_t;
+ 
+ typedef struct {
+        bwtint_t primary; // S^{-1}(0), or the primary index of BWT
+diff -rU 3 bwa-0.7.15-original/bwt_lite.c bwa-0.7.15/bwt_lite.c
+--- bwa-0.7.15-original/bwt_lite.c      2019-03-21 07:44:35.079304929 +0000
++++ bwa-0.7.15/bwt_lite.c       2019-03-21 07:47:54.783710268 +0000
+@@ -7,6 +7,8 @@
+ #  include "malloc_wrap.h"
+ #endif
+ 
++typedef uint32_t u_int32_t;
++
+ int is_sa(const uint8_t *T, int *SA, int n);
+ int is_bwt(uint8_t *T, int n);
+ 
+diff -rU 3 bwa-0.7.15-original/kthread.c bwa-0.7.15/kthread.c
+--- bwa-0.7.15-original/kthread.c       2019-03-21 07:44:35.079304929 +0000
++++ bwa-0.7.15/kthread.c        2019-03-21 07:45:23.855401648 +0000
+@@ -1,6 +1,7 @@
+ #include <pthread.h>
+ #include <stdlib.h>
+ #include <limits.h>
++#include <stdint.h>
+ 
+ /************
+  * kt_for() *

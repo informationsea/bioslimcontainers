@@ -1,0 +1,7 @@
+-
+  name: "htslib"
+  type: "autotools"
+  versions: [1.9, 1.8, 1.7, 1.6, 1.5, 1.4.1, 1.4, 1.3]
+  url: "https://github.com/samtools/htslib/releases/download/{version}/htslib-{version}.tar.bz2"
+  builddep: "gcc make libc-dev ncurses-dev bzip2-dev zlib-dev curl-dev curl xz-dev"
+  runtimedep: "ncurses libbz2 zlib libcurl xz-libs"

@@ -1,0 +1,7 @@
+-
+  name: "bcftools"
+  type: "autotools"
+  versions: [1.9, 1.8, 1.7, 1.6, 1.5]
+  url: "https://github.com/samtools/bcftools/releases/download/{version}/bcftools-{version}.tar.bz2"
+  builddep: "gcc make libc-dev ncurses-dev bzip2-dev zlib-dev curl-dev curl xz-dev"
+  runtimedep: "ncurses libbz2 zlib libcurl xz-libs"

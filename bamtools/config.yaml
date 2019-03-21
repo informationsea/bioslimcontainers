@@ -1,0 +1,8 @@
+-
+  name: "bamtools"
+  type: "cmake"
+  versions: [2.5.1, 2.5.0, 2.4.2, 2.4.1]
+  url: "https://github.com/pezmaster31/bamtools/archive/v{version}.tar.gz"
+  archivename: "bamtools-{version}"
+  builddep: "gcc g++ make libc-dev zlib-dev cmake"
+  runtimedep: "zlib libstdc++"

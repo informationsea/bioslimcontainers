@@ -1,0 +1,30 @@
+-
+  name: "bwa"
+  type: "make"
+  versions: ["0.7.17", "0.7.16a"]
+  url: "https://downloads.sourceforge.net/project/bio-bwa/bwa-{version}.tar.bz2"
+  builddep: "gcc make libc-dev zlib-dev"
+  runtimedep: "zlib"
+  artifacts:
+    -
+      file: "bwa"
+      dest: "/usr/bin"
+    -
+      file: "bwa.1"
+      dest: "/usr/share/man/man1"
+-
+  name: "bwa"
+  type: "make"
+  versions: ["0.7.15", "0.7.13", "0.7.12", "0.7.11"]
+  url: "https://downloads.sourceforge.net/project/bio-bwa/bwa-{version}.tar.bz2"
+  builddep: "gcc make libc-dev zlib-dev patch"
+  runtimedep: "zlib"
+  patch:
+    - "patch-1.patch"
+  artifacts:
+    -
+      file: "bwa"
+      dest: "/usr/bin"
+    -
+      file: "bwa.1"
+      dest: "/usr/share/man/man1"      

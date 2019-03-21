@@ -1,0 +1,8 @@
+-
+  name: "genome-python"
+  type: "python"
+  versions: ["latest"]
+  builddep: "openblas-dev gcc g++ libc-dev gfortran make automake autoconf libtool cmake zlib-dev bzip2-dev ncurses-dev xz-dev readline-dev curl-dev wget freetype-dev libjpeg-turbo-dev libxml2-dev"
+  runtimedep: "zlib libstdc++ openblas libbz2 ncurses xz readline curl wget freetype libjpeg-turbo libxml2"
+  packages: [cython, numpy, scipy, biopython, matplotlib, virtualenv, vcfpy, pyfaidx, pyliftover, pysam, pyyaml, rtree, yapf, ipython, pyfasta, openpyxl, pyexcel, pandas, seaborn]
+  

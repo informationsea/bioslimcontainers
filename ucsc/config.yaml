@@ -1,0 +1,15 @@
+-
+  name: "ucsc"
+  type: "make"
+  versions: [378, 377]
+  url: "http://hgdownload.soe.ucsc.edu/admin/exe/userApps.v{version}.src.tgz"
+  archivename: "userApps"
+  builddep: "gcc make libc-dev zlib-dev libpng-dev mariadb-dev mariadb-client bash"
+  runtimedep: "zlib libpng mariadb-client bash"
+  artifacts:
+    -
+      file: "bwa"
+      dest: "/usr/bin"
+    -
+      file: "bwa.1"
+      dest: "/usr/share/man/man1"

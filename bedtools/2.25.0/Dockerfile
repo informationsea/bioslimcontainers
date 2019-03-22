@@ -15,5 +15,5 @@ RUN install -D -t /dest//usr/bin bin/*
 
 
 FROM alpine:3.9
-RUN apk add zlib bash libstdc++
+RUN apk add zlib libstdc++
 COPY --from=buildenv /dest /

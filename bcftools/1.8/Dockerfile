@@ -9,6 +9,7 @@ FROM alpine:3.9 AS buildenv
 RUN apk add gcc make libc-dev ncurses-dev bzip2-dev zlib-dev curl-dev curl xz-dev
 COPY --from=download /bcftools-1.8 /bcftools-1.8
 WORKDIR /bcftools-1.8
+
 RUN ./configure --prefix=/usr
 RUN make -j4
 RUN make install DESTDIR=/dest

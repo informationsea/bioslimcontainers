@@ -9,6 +9,7 @@ FROM alpine:3.9 AS buildenv
 RUN apk add gcc make libc-dev ncurses-dev bzip2-dev zlib-dev curl-dev curl xz-dev
 COPY --from=download /htslib-1.4.1 /htslib-1.4.1
 WORKDIR /htslib-1.4.1
+
 RUN ./configure --prefix=/usr
 RUN make -j4
 RUN make install DESTDIR=/dest

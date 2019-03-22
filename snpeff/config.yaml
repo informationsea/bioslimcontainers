@@ -1,0 +1,13 @@
+-
+  name: snpeff
+  archivename: snpEff
+  versions: [4_3t, 4_3s, 4_3r, 4_3q, 4_3p, "4_3", "4_2"]
+  type: zip
+  runtimedep: openjdk8-jre nss
+  url: "https://downloads.sourceforge.net/project/snpeff/snpEff_v{version}_core.zip"
+  custom_deployment:
+    - ENV JAVA_OPTIONS -Xmx4g
+    - RUN echo 'java ${JAVA_OPTIONS} -jar /opt/snpEff/snpEff.jar "${@}"' > /usr/bin/snpEff && chmod +x /usr/bin/snpEff
+    - RUN echo 'java ${JAVA_OPTIONS} -jar /opt/snpEff/SnpSift.jar "${@}"' > /usr/bin/SnpSift && chmod +x /usr/bin/SnpSift
+#    - RUN snpEff download hg19
+#    - RUN snpEff download hg38

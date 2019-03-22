@@ -17,3 +17,5 @@ RUN make install DESTDIR=/dest
 FROM alpine:3.9
 RUN apk add {{runtimedep}}
 COPY --from=buildenv /dest /
+{% for one in custom_deployment %}{{one}}
+{% endfor %}

@@ -15,5 +15,8 @@ RUN make -j4
 RUN make install DESTDIR=/dest
 
 FROM alpine:3.9
-RUN apk add ncurses libbz2 zlib libcurl xz-libs
+RUN apk add bash ncurses libbz2 zlib libcurl xz-libs
 COPY --from=buildenv /dest /
+
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]

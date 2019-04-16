@@ -17,5 +17,8 @@ RUN make -j4
 RUN make install DESTDIR=/dest
 
 FROM alpine:3.9
-RUN apk add zlib libstdc++
+RUN apk add bash zlib libstdc++
 COPY --from=buildenv /dest /
+
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]

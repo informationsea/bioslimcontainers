@@ -15,5 +15,7 @@ RUN install -D -t /dest//usr/bin samtools
 
 
 FROM alpine:3.9
-RUN apk add ncurses libbz2 zlib libcurl
+RUN apk add bash ncurses libbz2 zlib libcurl
 COPY --from=buildenv /dest /
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]

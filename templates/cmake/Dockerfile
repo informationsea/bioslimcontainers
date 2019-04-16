@@ -17,7 +17,9 @@ RUN make -j4
 RUN make install DESTDIR=/dest
 
 FROM alpine:3.9
-RUN apk add {{runtimedep}}
+RUN apk add bash {{runtimedep}}
 COPY --from=buildenv /dest /
 {% for one in custom_deployment %}{{one}}
 {% endfor %}
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]

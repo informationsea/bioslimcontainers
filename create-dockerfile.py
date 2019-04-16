@@ -76,6 +76,9 @@ def _main():
                 print("# template file is {}".format(vars['type']), file=f)
                 f.write(x.render(**vars))
 
+            shutil.copyfile(os.path.join(options.templates, "run.sh"), os.path.join(
+                options.output, one_version, "run.sh"))
+
             if 'patch' in vars:
                 for one_patch in vars["patch"]:
                     shutil.copyfile(os.path.join(

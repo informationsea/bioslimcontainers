@@ -5,7 +5,10 @@ RUN apk add curl libarchive-tools
 RUN curl -OL https://github.com/broadinstitute/picard/releases/download/2.17.1/picard.jar
 
 FROM alpine:3.9
-RUN apk add openjdk8-jre 
+RUN apk add openjdk8-jre bash 
 COPY --from=download /picard.jar /opt/picard.jar
 ENV JAVA_OPTIONS -Xmx4g
 RUN echo 'java ${JAVA_OPTIONS} -jar /opt/picard.jar "${@}"' > /usr/bin/picard && chmod +x /usr/bin/picard
+
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]

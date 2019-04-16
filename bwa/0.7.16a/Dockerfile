@@ -16,5 +16,7 @@ RUN install -D -t /dest//usr/share/man/man1 bwa.1
 
 
 FROM alpine:3.9
-RUN apk add zlib
+RUN apk add bash zlib
 COPY --from=buildenv /dest /
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]

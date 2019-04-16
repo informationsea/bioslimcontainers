@@ -15,5 +15,7 @@ RUN make -j4
 {% endfor %}
 
 FROM alpine:3.9
-RUN apk add {{runtimedep}}
+RUN apk add bash {{runtimedep}}
 COPY --from=buildenv /dest /
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]

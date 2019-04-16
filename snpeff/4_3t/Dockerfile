@@ -6,8 +6,11 @@ RUN curl -OL https://downloads.sourceforge.net/project/snpeff/snpEff_v4_3t_core.
 RUN bsdtar xf snpEff_v4_3t_core.zip
 
 FROM alpine:3.9
-RUN apk add openjdk8-jre nss
+RUN apk add bash openjdk8-jre nss
 COPY --from=download /snpEff /opt/snpEff
 ENV JAVA_OPTIONS -Xmx4g
 RUN echo 'java ${JAVA_OPTIONS} -jar /opt/snpEff/snpEff.jar "${@}"' > /usr/bin/snpEff && chmod +x /usr/bin/snpEff
 RUN echo 'java ${JAVA_OPTIONS} -jar /opt/snpEff/SnpSift.jar "${@}"' > /usr/bin/SnpSift && chmod +x /usr/bin/SnpSift
+
+ADD run.sh /run.sh
+ENTRYPOINT [ "/bin/bash", "/run.sh" ]
